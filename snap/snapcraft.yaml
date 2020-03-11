@@ -74,6 +74,7 @@ parts:
       - -usr/share/icons
       - -usr/share/lintian
       - -usr/share/man
+      - -usr/share/codium/chrome-sandbox
   wrapper:
     after:
       - codium
