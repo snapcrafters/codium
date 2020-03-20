@@ -27,7 +27,10 @@ apps:
       DISABLE_WAYLAND: 1
       GSETTINGS_SCHEMA_DIR: $SNAP/usr/share/glib-2.0/schemas
 
-parts:    
+parts:
+  build-trigger:
+    plugin: nil
+    source: https://github.com/VSCodium/vscodium.git
   codium:
     plugin: nil
     override-build: |
