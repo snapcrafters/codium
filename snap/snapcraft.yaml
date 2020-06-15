@@ -48,9 +48,9 @@ parts:
       rm -f releases.json
       rm -f "${SNAPCRAFT_PART_INSTALL}/${DEB}"
       snapcraftctl set-version "$VERSION"
-      sed -i 's|Icon=/usr/share/pixmaps/vscodium.png|Icon=${SNAP}/usr/share/pixmaps/vscodium.png|g' ${SNAPCRAFT_PART_INSTALL}/usr/share/applications/codium.desktop
+      sed -i 's|Icon=vscodium|Icon=${SNAP}/usr/share/pixmaps/vscodium.png|g' ${SNAPCRAFT_PART_INSTALL}/usr/share/applications/codium.desktop
       sed -i 's|Exec=/usr/share/codium/codium|Exec=codium|g' ${SNAPCRAFT_PART_INSTALL}/usr/share/applications/codium.desktop
-      sed -i 's|Icon=/usr/share/pixmaps/vscodium.png|Icon=/usr/share/pixmaps/vscodium.png|g' ${SNAPCRAFT_PART_INSTALL}/usr/share/applications/codium-url-handler.desktop
+      sed -i 's|Icon=vscodium|Icon=/usr/share/pixmaps/vscodium.png|g' ${SNAPCRAFT_PART_INSTALL}/usr/share/applications/codium-url-handler.desktop
     build-packages:
       - wget
       - jq
@@ -71,6 +71,8 @@ parts:
       - libxss1
       - libxtst6
       - zlib1g
+      - libx11-xcb1
+      - libxkbfile1
     prime:
       - -usr/share/doc
       - -usr/share/fonts
