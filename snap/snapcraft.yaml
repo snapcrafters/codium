@@ -39,7 +39,7 @@ parts:
       echo "Get GitHub releases..."
       wget --quiet https://api.github.com/repos/VSCodium/vscodium/releases -O releases.json
       VERSION=$(jq . releases.json | grep tag_name | cut -d'"' -f4 | sed s'/v//' | head -n 1)
-      DEB_URL=$(grep browser_download releases.json | grep "download/${VERSION}" | grep deb | grep $ARCHITECTURE | grep -v sha256 | cut -d'"' -f4 | tail -n 1)
+      DEB_URL=$(grep browser_download releases.json | grep "download/${VERSION}" | grep deb | grep $ARCHITECTURE | grep -v sha256 | grep -v sha1 | cut -d'"' -f4 | tail -n 1)
       DEB=$(basename "${DEB_URL}")
       echo "Downloading ${DEB_URL}..."
       wget "${DEB_URL}" -O "${SNAPCRAFT_PART_INSTALL}/${DEB}"
