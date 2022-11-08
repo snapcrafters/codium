@@ -4,7 +4,7 @@ summary: Code editing. Redefined.
 description: |
   Binary releases of Code without branding/telemetry/licensing
 
-base: core18
+base: core20
 grade: stable
 confinement: classic
 compression: lzo
@@ -14,13 +14,13 @@ architectures:
   
 apps:
   codium:
-    command: electron-launch $SNAP/usr/share/codium/bin/codium
+    command: bin/electron-launch $SNAP/usr/share/codium/bin/codium
     desktop: usr/share/applications/codium.desktop
     environment:
       GSETTINGS_SCHEMA_DIR: $SNAP/usr/share/glib-2.0/schemas
 
   url-handler:
-    command: electron-launch $SNAP/usr/share/codium/bin/codium --open-url
+    command: bin/electron-launch $SNAP/usr/share/codium/bin/codium --open-url
     desktop: usr/share/applications/codium-url-handler.desktop
     environment:
       GSETTINGS_SCHEMA_DIR: $SNAP/usr/share/glib-2.0/schemas
@@ -58,7 +58,6 @@ parts:
       - libasound2
       - libgconf-2-4
       - libglib2.0-bin
-      - libgnome-keyring0
       - libgtk-3-0
       - libnotify4
       - libnspr4
